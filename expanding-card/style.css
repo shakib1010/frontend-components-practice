@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Card styles */
+
+.container {
+  display: flex;
+  width: 90vw;
+}
+
+.panel {
+  background: url("https://images.unsplash.com/photo-1671312870850-06d22098ace8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80");
+  background-size: cover;
+  background-position: center;
+  margin: 10px;
+  height: 80vh;
+  border-radius: 50px;
+  flex: 1;
+  color: #fff;
+  position: relative;
+  transition: flex 0.7s ease-in;
+  cursor: pointer;
+}
+
+.panel h3 {
+  position: absolute;
+  left: 40px;
+  bottom: 40px;
+  opacity: 0;
+  transition: opacity 0.4s ease-in;
+}
+
+.panel.active {
+  flex: 5;
+  cursor: default;
+}
+
+.panel.active h3 {
+  opacity: 1;
+}
+
+@media (max-width: 600px) {
+  .panel:nth-last-child(-n+2) {
+    display: none;
+  }
+
+}
