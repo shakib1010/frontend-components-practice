@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+:root {
+  --body-bg: #e3f6ff;
+  --step-bar-fill: #8dcbe6;
+  --step-bar-empty: #dddddd;
+  --color-white: #fff;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--body-bg);
+}
+
+.container {
+  text-align: center;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 350px;
+  max-width: 100%;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.progress-container::after {
+  content: "";
+  position: absolute;
+  height: 4px;
+  background-color: var(--step-bar-empty);
+  width: 100%;
+  z-index: -2;
+}
+
+.step-bar {
+  position: absolute;
+  height: 4px;
+  background-color: var(--step-bar-fill);
+  width: 0%;
+  z-index: -1;
+  transition: 0.3s ease;
+}
+
+.circle {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-white);
+  border-radius: 50%;
+  border: 3px solid var(--step-bar-empty);
+  transition: 0.3s ease;
+}
+
+.circle.active {
+  border: 3px solid var(--step-bar-fill);
+}
+
+.btn {
+  border: none;
+  padding: 8px 30px;
+  border-radius: 6px;
+  background-color: var(--step-bar-fill);
+  margin: 5px;
+  cursor: pointer;
+  color: var(--color-white);
+  font-family: inherit;
+}
+
+.btn:active {
+  transform: scale(1.02);
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  background-color: var(--step-bar-empty);
+}
